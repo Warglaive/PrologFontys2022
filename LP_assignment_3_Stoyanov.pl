@@ -4,6 +4,10 @@ s --> np(subj), vp.
 np(_) --> det, adj, n, rel.
 np(_) --> negn, adj, n.
 np(_) --> pn.
+np(_) --> det, adjf, nf, rel.
+np(_) --> det, adjm, nm, rel.
+np(_) --> negn, adjf, nf.
+np(_) --> negn, adjm, nm.
 np(CASE) --> pro(CASE).
 vp --> vi.
 vp --> vt, np(obj).
@@ -14,11 +18,14 @@ vp --> vd, negv, vtn, np(obj).
 rel --> [].
 rel --> pro(relt), vp.
 
+
 %% ----- Alphabet
 det --> [a].
 det --> [the].
-n --> [bride].
-n --> [nurse].
+nf --> [bride].
+nf --> [nurse].
+nm --> [man].
+nm --> [devil].
 n --> [whiskey].
 pn --> [bill].
 pro(subj) --> [he].
@@ -37,8 +44,14 @@ vd --> [does].
 negv --> [not].
 negn --> [no].
 adj --> [].
-adj --> [pretty].
 adj --> [nice].
+adj --> [bad].
+adjf --> [pretty].
+adjm --> [handsome].
+
+% ?- s([a,handsome,devil,drinks,a,pretty,bride],[]).
+% true ;
+% false.
 
 % ?- s([a,bride,drinks,a,bride],[]).
 % true ;
